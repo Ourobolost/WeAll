@@ -1,0 +1,28 @@
+<html>
+<header>
+</header>
+<body>
+
+
+<?php
+$con=mysqli_connect("127.0.0.1","root","","chat");
+if (mysqli_connect_errno()){echo "Failed to connect to MySQL: " .
+mysqli_connect_error();}
+
+$username= mysqli_real_escape_string($con, $_POST['name']);
+$password= mysqli_real_escape_string($con, $_POST['pass']);
+$firstname = mysqli_real_escape_string($con, $_POST['fname']);
+$lastname = mysqli_real_escape_string($con, $_POST['lname']);
+
+
+$sql = "INSERT INTO user_account (USERNAME, PASSWORD, FirstName, LastName)VALUES
+('$username','$password','$firstname','$lastname');";
+if (!mysqli_query($con,$sql)) {
+die('Error: ' . mysqli_error($con));
+}
+mysqli_close($con);
+echo '<meta http-equiv="refresh" content="0;url=index.php">';
+?>
+
+</body>
+</html>
