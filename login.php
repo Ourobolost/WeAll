@@ -14,6 +14,7 @@
 
 
     <?php
+    // if already login return to index
 if(isset($_SESSION['UserNo']))
 {
     echo '
@@ -23,9 +24,10 @@ if(isset($_SESSION['UserNo']))
     </div>
     ';
 }
+        // Display login form
     else {
     echo '
-        <p>Login Form:</p>
+        <p>Login:</p>
         <label for="name">Username:</label>
         <input type="text" name="name" id="name" />
         <br><br>

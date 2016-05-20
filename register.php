@@ -5,6 +5,25 @@
 
 
 <?php
+
+
+if($_POST['name'] == '' ){
+	echo "Error Please input username";
+	echo '<meta http-equiv="refresh" content="5;url=index.php">';
+}
+else if($_POST['pass']){
+	echo "Please input password";
+	echo '<meta http-equiv="refresh" content="5;url=index.php">';
+}
+else if($_POST['fname'] == ''){
+	echo "Please input Firstname";
+	echo '<meta http-equiv="refresh" content="5;url=index.php">';
+}
+else if($_POST['lname'] == ''){
+	echo "Please input Lastname";
+echo '<meta http-equiv="refresh" content="5;url=index.php">';
+}
+ else {
 $con=mysqli_connect("127.0.0.1","root","","chat");
 if (mysqli_connect_errno()){echo "Failed to connect to MySQL: " .
 mysqli_connect_error();}
@@ -22,6 +41,9 @@ die('Error: ' . mysqli_error($con));
 }
 mysqli_close($con);
 echo '<meta http-equiv="refresh" content="0;url=index.php">';
+
+
+}
 ?>
 
 </body>

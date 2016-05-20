@@ -7,10 +7,13 @@
 </head>
 
 <?php
+
+//start session and correct login condition
+
 	session_start();
 
 	require_once("connect.php");
-
+// if user not enter username or password display the error
 if(!isset($_POST['name']) || !isset($_POST['pass']))	{
 		echo '
 		<div id="loginform">
@@ -19,6 +22,8 @@ if(!isset($_POST['name']) || !isset($_POST['pass']))	{
 		</div>
 		';
 }
+
+// check username and password from database
 
 else{
 	$strUsername = mysqli_real_escape_string($con,$_POST['name']);
@@ -29,6 +34,7 @@ else{
 	$objQuery = mysqli_query($con,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery);
 
+// if dont get data from database it means Incorrect Username or Password
 	if(!$objResult)
 	{
 		echo "Username and Password Incorrect!";

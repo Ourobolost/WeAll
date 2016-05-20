@@ -14,6 +14,8 @@
 	$objQuery = mysqli_query($con,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
+
+// open log file and write message
 	$text = $_POST['text'];
     $fp = fopen("log.html", 'a');
     fwrite($fp, "<div class='msgln'>(".date("g:i A").") <b>".$_SESSION['name']."</b>: ".stripslashes(htmlspecialchars($text))."<br></div>");
