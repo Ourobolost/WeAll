@@ -11,7 +11,7 @@ if($_POST['name'] == '' ){
 	echo "Error Please input username";
 	echo '<meta http-equiv="refresh" content="5;url=index.php">';
 }
-else if($_POST['pass']){
+else if($_POST['pass'] == ''){
 	echo "Please input password";
 	echo '<meta http-equiv="refresh" content="5;url=index.php">';
 }
